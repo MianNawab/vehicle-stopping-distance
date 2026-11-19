@@ -48,3 +48,15 @@ def test_calculate_stopping_distance_invalid():
         main.calculate_stopping_distance(36, -1.5, 0, "dry")
     with pytest.raises(ValueError):
         main.calculate_stopping_distance(36, 1.5, -5, "out")
+def test_calculate_stopping_distances():
+    speeds_kmh = [30,50,80]
+    reaction_time = 1.5
+    gradient_percent = 0
+    friction_type = "dry"
+    stop_distances = main.calculate_stopping_distances(speeds_kmh, reaction_time, gradient_percent, friction_type)
+    assert len(stop_distances) == 3
+    for result in stop_distances:
+        assert len(result) == 3  # Each tuple should have 3 elements: reaction_distance, braking_distance, stopping_distance
+
+        assert result[2] == result[0] + result[1] #total stopping distance should be sum of reaction and braking distance
+            

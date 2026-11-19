@@ -49,6 +49,16 @@ def calculate_stopping_distance(speed_kmh, reaction_time, gradient_percent, fric
     stopping_distance = reaction_distance + braking_distance
 
     return reaction_distance, braking_distance, stopping_distance
+    #return stopping_distance
+
+def calculate_stopping_distances(speeds_kmh, reaction_time, gradient_percent, friction_type):
+     stop_distances=[]
+     for speed in speeds_kmh:
+          stop_distances.append(calculate_stopping_distance(speed, reaction_time, gradient_percent, friction_type))
+     
+     return stop_distances
+
+
 def main():
     speed_kmh=float(input("Enter the speed of the vehicle in km/h: "))
     if speed_kmh < 0:
@@ -58,13 +68,14 @@ def main():
         raise ValueError("Reaction time cannot be negative. Please enter a valid reaction time.")
     gradient_percent=float(input("Enter the gradient of the road in percentage, if flat enter 0: "))
     friction_type=input("Enter the road condition (dry, wet, snow, icy): ").lower()
-    
+    # speeds_kmh = [float(x) for x in input("Enter the speeds of the vehicles in km/h, separated by commas: ").split(",")]
+    # if any(speed < 0 for speed in speeds_kmh):
+    #     raise ValueError("Speeds cannot be negative. Please enter valid speeds.")
 
-    reaction_distance, braking_distance, stopping_distance = calculate_stopping_distance(speed_kmh, reaction_time, gradient_percent, friction_type)
+    reaction_distance, braking_distance,stopping_distance = calculate_stopping_distances(speed_kmh, reaction_time, gradient_percent, friction_type)
     print(f"Reaction Distance: {reaction_distance:.2f} meters")
     print(f"Braking Distance: {braking_distance:.2f} meters")
     print(f"Stopping Distance: {stopping_distance:.2f} meters")
 
 if __name__ == "__main__":
     main()    
-    
