@@ -1,7 +1,7 @@
 import math
 def kmh_to_ms(speed_kmh):
     """Convert vehicle speed from km/h to m/s."""
-    return speed_kmh * 1000 / 3000
+    return speed_kmh * 1000 / 3600
    
 def calculate_reaction_distance(reaction_time, speed_kmh):
     return reaction_time * kmh_to_ms(speed_kmh)
