@@ -17,7 +17,8 @@ def calculate_braking_distance(speed_kmh, calculate_effective_deceleration):
         return (kmh_to_ms(speed_kmh) ** 2) / (2 * calculate_effective_deceleration)
     else:
         raise ValueError(
-            "Effective deceleration must be greater than 0. Please check the input values."
+            "Effective deceleration must be greater than 0."
+            " Please check the input values."
         )
 
 
@@ -33,7 +34,8 @@ def calculate_effective_deceleration(gravity, friction_coefficient, gradient_per
     ) + gravity * math.sin(angle)
     if deceleration <= 0:
         raise ValueError(
-            "Effective deceleration must be greater than 0. Please check the input values."
+            "Effective deceleration must be greater than 0."
+            " Please check the input values."
         )
     return deceleration
 
@@ -97,7 +99,8 @@ def calculate_stopping_distance_for_multiple_road_conditions(
 
 def plotting_stopping_distances(stop_distances_by_condition):
     stopping_distances = {}
-    # stop_distances_by_condition = calculate_stopping_distance_for_multiple_road_conditions(speeds_kmh,reaction_time,gradient_percent,friction_types)
+    # stop_distances_by_condition = calculate_stopping_distance_for_multiple_
+    # road_conditions(speeds_kmh,reaction_time,gradient_percent,friction_types)
     for condition, distances in stop_distances_by_condition:
         for i in range(len(distances)):
             stopping_distance = distances[i][
@@ -112,7 +115,8 @@ def plotting_stopping_distances(stop_distances_by_condition):
 def main():
     # speed_kmh=float(input("Enter the speed of the vehicle in km/h: "))
     # if speed_kmh < 0:
-    #     raise ValueError("Speed cannot be negative. Please enter a valid speed.")
+    #     raise ValueError("Speed cannot be negative.
+    #  Please enter a valid speed.")
     reaction_time = float(input("Enter the reaction time in seconds: "))
     if reaction_time < 0:
         raise ValueError(
@@ -137,11 +141,14 @@ def main():
     if any(speed < 0 for speed in speeds_kmh):
         raise ValueError("Speeds cannot be negative. Please enter valid speeds.")
 
-    # stoping_distances= calculate_stopping_distances(speeds_kmh, reaction_time, gradient_percent, friction_type)
+    # stoping_distances= calculate_stopping_distances
+    # (speeds_kmh, reaction_time, gradient_percent, friction_type)
 
     # print("Stopping Distance:",stoping_distances," meters")
     # print("\nComparing stopping distances for different road conditions:")
-    # stop_distances_by_condition = calculate_stopping_distance_for_multiple_road_conditions(speeds_kmh, reaction_time, gradient_percent, friction_types)
+    # stop_distances_by_condition =
+    # calculate_stopping_distance_for_multiple_road_conditions
+    # (speeds_kmh, reaction_time, gradient_percent, friction_types)
 
     # print('\n',stop_distances_by_condition)#
     stop_distances_by_condition = (

@@ -70,10 +70,8 @@ def test_calculate_stopping_distances():
     )
     assert len(stop_distances) == 3
     for result in stop_distances:
-        assert (
-            len(result) == 3
-        )  # Each tuple should have 3 elements: reaction_distance, braking_distance, stopping_distance
+        assert len(result) == 3  # Each tuple should have 3 elements
+        #:reaction_distance, braking_distance, stopping_distance
 
-        assert (
-            result[2] == result[0] + result[1]
-        )  # total stopping distance should be sum of reaction and braking distance
+        assert result[2] == result[0] + result[1]  # total stopping distance should be
+        # sum of reaction and braking distance
