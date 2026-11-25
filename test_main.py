@@ -76,13 +76,16 @@ def test_calculate_stopping_distances():
         assert result[2] == result[0] + result[1]  # total stopping distance should be
         # sum of reaction and braking distance
 
+
 def test_calculate_effective_deceleration_invalid():
     with pytest.raises(ValueError):
         main.calculate_effective_deceleration(9.81, 0.8, -200)
 
+
 def test_calculate_stopping_distance_invalid_gradient():
     with pytest.raises(ValueError):
         main.calculate_stopping_distance(36, 1.5, -5, "dry")
+
 
 def test_calculate_stopping_distance_for_multiple_road_conditions():
     speeds = [30, 50]
@@ -97,6 +100,7 @@ def test_calculate_stopping_distance_for_multiple_road_conditions():
     assert result[1][0] == "wet"
     assert len(result[0][1]) == 2
     assert len(result[1][1]) == 2
+
 
 def test_plotting_stopping_distances():
     data = [
