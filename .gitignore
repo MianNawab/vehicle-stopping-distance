@@ -11,3 +11,7 @@ venv/
 
 # Generated plots
 Figure_*.png
+
+# Coverage reports
+.coverage
+htmlcov/
